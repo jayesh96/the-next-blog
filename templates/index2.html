@@ -1,0 +1,59 @@
+{% extends "base_1.html" %}
+
+{% block content %}
+        <!--Main layout-->
+        <div class="container">
+            <!--First row-->
+            <div class="row wow fadeIn" data-wow-delay="0.2s">
+            {% if instance.image %}
+                <div class="col-8">
+                    <!--Featured image -->
+
+                    <div class="view overlay hm-white-light z-depth-1-half">
+                        <img src="{{ instance.image }}" class="img-fluid " alt="">
+                        <div class="mask">
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+            {% endif %}
+
+            </div>
+            
+
+
+            <br/>
+
+                <!--Main information-->
+                <div class="col-6">
+                    <h2 class="h2-responsive">{{ title }}</h2>
+                    <h1><small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}{{ instance.publish }}</small></h1>
+               <p>Read time: {% if instance.read_time <= 1 %} < 1 Minute {% else %}{{ instance.read_time }} minutes {% endif %}</p>
+            {% if instance.user.get_full_name %}
+            <p>Author: {{ instance.user.get_full_name }}</p>
+                {% endif %}
+            <div>
+                    <hr>
+                    <p>{{ instance.get_markdown }}</p>
+                    
+                </div>
+            </div>
+            
+                </div>
+
+
+
+                <br/>
+
+
+
+
+
+
+<div >
+
+{% endblock content %}
+                
+
+    
