@@ -88,7 +88,7 @@ def post_detail(request, slug=None):
 		"comments": comments,
 		"comment_form":form,
 	}
-	return render(request, "post_detail.html", context)
+	return render(request, "post.html", context)
 
 def post_list(request):
 	today = timezone.now().date()
